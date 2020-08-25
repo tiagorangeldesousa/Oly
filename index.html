@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+
+  width: 120px;
+  height: 120px;
+ 
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+</style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+
+<div id="loader">
+<svg width="51px" height="50px" viewBox="0 0 51 50">
+<rect y="11.5303" width="13" height="26.9394" fill="#1fa2ff">
+<animate attributeName="height" values="50;10;50" begin="0s" dur="1s" repeatCount="indefinite"></animate>
+<animate attributeName="y" values="0;20;0" begin="0s" dur="1s" repeatCount="indefinite"></animate>
+</rect>
+<rect x="19" y="19.5303" width="13" height="10.9394" fill="#12d8fa">
+<animate attributeName="height" values="50;10;50" begin="0.2s" dur="1s" repeatCount="indefinite"></animate>
+<animate attributeName="y" values="0;20;0" begin="0.2s" dur="1s" repeatCount="indefinite"></animate>
+</rect>
+<rect x="38" y="12.4697" width="13" height="25.0606" fill="#06ffcb">
+<animate attributeName="height" values="50;10;50" begin="0.4s" dur="1s" repeatCount="indefinite"></animate>
+<animate attributeName="y" values="0;20;0" begin="0.4s" dur="1s" repeatCount="indefinite"></animate>
+</rect>
+</svg>
+</div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">
+  <h2>Tada!</h2>
+  <p>Some text in my newly loaded page..</p>
+</div>
+
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
+</body>
+</html>
